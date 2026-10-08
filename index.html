@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Profil Yuppy Nur Hidayat, siswa RPL SMKS Brantas Karangkates yang sedang belajar pemrograman web.">
+
+    <title>Profil Yuppy Nur Hidayat</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="brand" href="#tentang">Welcome to my profile</a>
+
+            <nav aria-label="Navigasi utama">
+                <a href="#tentang">Tentang</a>
+                <a href="#keahlian">Keahlian</a>
+                <a href="#portofolio">Portofolio</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- HERO -->
+        <section class="hero" aria-labelledby="judul-hero">
+            <img src="img/foto-profil.jpg" alt="Foto Yuppy Nur Hidayat memakai seragam SMKS Brantas dan baret">
+
+            <div class="hero-text">
+                <p class="hero-sapaan">Halo, saya</p>
+                <h1 id="judul-hero">Yuppy Nur Hidayat</h1>
+                <p class="hero-deskripsi">
+                    Siswa Rekayasa Perangkat Lunak yang sedang belajar
+                    membuat website dan program, dari tampilan sampai logikanya.
+                </p>
+
+                <div class="hero-aksi">
+                    <a class="tombol tombol-utama" href="#portofolio">Lihat portofolio</a>
+                    <a class="tombol tombol-garis" href="#tentang">Kenali saya</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- TENTANG -->
+        <section id="tentang" class="bagian">
+            <h2 class="judul-bagian">Tentang saya</h2>
+
+            <div class="tentang-isi">
+                <div class="teks-panjang">
+                    <p>
+                        Saya pelajar SMKS Brantas Karangkates jurusan RPL (Rekayasa Perangkat Lunak)
+                        dengan ketertarikan besar pada dunia teknologi.
+                    </p>
+                    <p>
+                        Saat ini saya mempelajari HTML, CSS, JavaScript, PHP, MySQL, dan Python.
+                        Saya juga senang mengedit video, terutama lewat aplikasi pengedit video di ponsel. Saya
+                        paham dasar-dasarnya dan elemen yang dibutuhkan untuk meningkatkan kualitas
+                        sebuah video. Hobi ini sudah saya jalani sejak saya kecil, dan hobi inilah yang
+                        mendorong saya masuk ke dunia teknologi.
+                    </p>
+                </div>
+
+                <dl class="fakta">
+                    <div>
+                        <dt>Sekolah</dt>
+                        <dd>SMKS Brantas Karangkates</dd>
+                    </div>
+                    <div>
+                        <dt>Jurusan</dt>
+                        <dd>Rekayasa Perangkat Lunak</dd>
+                    </div>
+                    <div>
+                        <dt>Hobi</dt>
+                        <dd>Mengedit video</dd>
+                    </div>
+                </dl>
+            </div>
+        </section>
+
+        <!-- KEAHLIAN (Grid) -->
+        <section id="keahlian" class="bagian skills">
+            <h2 class="judul-bagian">Keahlian</h2>
+
+            <article class="card">
+                <h3>HTML</h3>
+                <p>Menyusun struktur halaman web.</p>
+            </article>
+
+            <article class="card">
+                <h3>CSS</h3>
+                <p>Mengatur tampilan dan tata letak halaman web.</p>
+            </article>
+
+            <article class="card">
+                <h3>JavaScript</h3>
+                <p>Sedang belajar membuat halaman web yang interaktif.</p>
+            </article>
+
+            <article class="card">
+                <h3>PHP dan MySQL</h3>
+                <p>Sedang belajar membuat web dengan database.</p>
+            </article>
+
+            <article class="card">
+                <h3>Python</h3>
+                <p>Membuat program dan game sederhana.</p>
+            </article>
+
+            <article class="card">
+                <h3>Edit video</h3>
+                <p>Mengedit video lewat aplikasi di ponsel.</p>
+            </article>
+        </section>
+
+        <!-- PORTOFOLIO (Grid) -->
+        <section id="portofolio" class="bagian gallery">
+            <h2 class="judul-bagian">Portofolio</h2>
+
+            <figure>
+                <img src="img/desain-figma.png" alt="Tampilan desain website di Figma" loading="lazy">
+                <figcaption>
+                    <h3>Desain Website</h3>
+                    <p>Proyek desain tampilan website menggunakan Figma.</p>
+                    <p class="tag">Figma</p>
+                </figcaption>
+            </figure>
+
+            <figure>
+                <img src="img/website-statis.png" alt="Tampilan website statis bertema Huawei" loading="lazy">
+                <figcaption>
+                    <h3>Website Statis</h3>
+                    <p>Proyek website statis menggunakan HTML dan CSS.</p>
+                    <p class="tag">HTML, CSS</p>
+                </figcaption>
+            </figure>
+
+            <a href="https://uler-io.vercel.app/" target="_blank" rel="noopener noreferrer" class="portfolio-link">
+                <figure>
+                    <img src="img/game-ular.png" alt="Menu awal game ular uler.io" loading="lazy">
+                    <figcaption>
+                        <h3>Game Ular</h3>
+                        <p>Proyek game sederhana menggunakan Pygame.</p>
+                        <p class="tag">Python, Pygame</p>
+                    </figcaption>
+                </figure>
+            </a>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Yuppy Nur Hidayat</p>
+        <p>SMKS Brantas Karangkates</p>
+    </footer>
+
+</body>
+
+</html>

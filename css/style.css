@@ -1,0 +1,531 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+}
+
+body {
+    font-family: var(--font);
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--tinta);
+    background: var(--latar);
+    -webkit-font-smoothing: antialiased;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    color: inherit;
+}
+
+:focus-visible {
+    outline: 3px solid var(--aksen);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+
+/* =========================================
+   2. VARIABEL
+   ========================================= */
+
+:root {
+    --tinta: #111a36;
+    --tinta-lembut: #4a5372;
+    --latar: #f6f7fb;
+    --permukaan: #ffffff;
+    --garis: #dde1ec;
+    --aksen: #2bff18;
+    --aksen-gelap: #1eb910;
+    --aksen-bayangan: rgba(43, 255, 24, 0.35);
+    --dongker: #16224a;
+
+    --font: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+
+    --lebar-maks: 1080px;
+    --radius: 14px;
+}
+
+/* Mode gelap otomatis (Tugas Pengayaan 3) */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --tinta: #eef0f8;
+        --tinta-lembut: #aab1cc;
+        --latar: #0e1429;
+        --permukaan: #161e3a;
+        --garis: #2a3358;
+        --aksen: #2bff18;
+        --aksen-gelap: #1eb910;
+        --aksen-bayangan: rgba(43, 255, 24, 0.3);
+        --dongker: #0a1030;
+    }
+}
+
+
+/* =========================================
+   3. GAYA MOBILE (dasar, tanpa media query)
+   ========================================= */
+
+/* --- Kerangka halaman dengan grid-template-areas (Tugas Pengayaan 4) --- */
+
+body {
+    display: grid;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
+.site-header {
+    grid-area: header;
+}
+
+main {
+    grid-area: main;
+}
+
+.site-footer {
+    grid-area: footer;
+}
+
+
+/* --- Lebar wadah dan jarak samping yang dipakai bersama --- */
+
+.header-inner,
+.hero,
+.bagian {
+    width: 100%;
+    max-width: var(--lebar-maks);
+    margin: 0 auto;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+}
+
+.bagian {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+    border-top: 1px solid var(--garis);
+}
+
+.judul-bagian {
+    font-size: 1.75rem;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.75rem;
+}
+
+
+/* --- Header (Flexbox) --- */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--dongker);
+    color: #fff;
+}
+
+.header-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.5rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+}
+
+.header-inner:hover {
+    color: var(--aksen);
+}
+
+.brand {
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.site-header nav {
+    display: flex;
+    gap: 1.25rem;
+}
+
+.site-header nav a {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    padding: 0.25rem 0;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+.site-header nav a:hover {
+    color: #fff;
+    border-bottom-color: var(--aksen);
+}
+
+
+/* --- Hero (Flexbox) --- */
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.75rem;
+    padding-top: 2.5rem;
+    padding-bottom: 3.5rem;
+    text-align: center;
+}
+
+.hero img {
+    width: 200px;
+    height: 200px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top;
+    border: 4px solid var(--permukaan);
+    box-shadow: 0 12px 32px rgba(17, 26, 54, 0.22);
+}
+
+.hero-sapaan {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: var(--tinta-lembut);
+}
+
+.hero h1 {
+    font-size: clamp(2.4rem, 8vw, 4rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin: 0.25rem 0 1rem;
+}
+
+.hero-deskripsi {
+    max-width: 34rem;
+    margin: 0 auto;
+    font-size: 1.125rem;
+    color: var(--tinta-lembut);
+}
+
+.hero-aksi {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 1.75rem;
+}
+
+
+/* --- Tombol --- */
+
+.tombol {
+    display: inline-block;
+    padding: 0.7rem 1.4rem;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 999px;
+    border: 2px solid transparent;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.tombol-utama {
+    background: var(--aksen);
+    color: #111a36;
+}
+
+.tombol-utama:hover {
+    background: var(--aksen-gelap);
+}
+
+.tombol-garis {
+    border-color: var(--tinta);
+    color: var(--tinta);
+}
+
+.tombol-garis:hover {
+    background: var(--tinta);
+    color: var(--latar);
+}
+
+
+/* --- Tentang --- */
+
+.tentang-isi {
+    display: grid;
+    gap: 2rem;
+}
+
+.teks-panjang {
+    max-width: 40rem;
+}
+
+.teks-panjang p + p {
+    margin-top: 1rem;
+}
+
+.fakta {
+    display: grid;
+    align-self: start;
+    background: var(--permukaan);
+    border: 1px solid var(--garis);
+    border-radius: var(--radius);
+    padding: 0.5rem 1.25rem;
+}
+
+.fakta div {
+    padding: 0.85rem 0;
+}
+
+.fakta div + div {
+    border-top: 1px solid var(--garis);
+}
+
+.fakta dt {
+    font-size: 0.875rem;
+    color: var(--tinta-lembut);
+}
+
+.fakta dd {
+    font-weight: 700;
+}
+
+
+/* --- Keahlian dan Galeri (Grid responsif tanpa media query) ---
+   Tugas Pengayaan 1: repeat(auto-fit, minmax(...)).
+   Setiap kolom minimal 280px. Muat 1 kolom di ponsel,
+   2 kolom di tablet, dan 3 kolom di desktop. */
+
+.skills,
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+}
+
+.skills .judul-bagian,
+.gallery .judul-bagian {
+    grid-column: 1 / -1;
+    margin-bottom: 0.75rem;
+}
+
+.gallery {
+    gap: 1.5rem;
+}
+
+
+/* --- Kartu keahlian --- */
+
+.card {
+    position: relative;
+    padding: 1.25rem;
+    background: var(--permukaan);
+    border: 1px solid var(--garis);
+    border-radius: var(--radius);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.card:hover {
+    transform: scale(1.04);
+    z-index: 1;
+    border-color: var(--aksen);
+    box-shadow: 0 10px 28px var(--aksen-bayangan);
+}
+
+.card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.card p {
+    color: var(--tinta-lembut);
+}
+
+
+/* --- Kartu portofolio (Flexbox di dalam Grid) --- */
+
+.gallery figure {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    background: var(--permukaan);
+    border: 1px solid var(--garis);
+    border-radius: var(--radius);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.gallery figure:hover {
+    transform: scale(1.04);
+    z-index: 1;
+    border-color: var(--aksen);
+    box-shadow: 0 14px 32px var(--aksen-bayangan);
+}
+
+.gallery img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    object-position: top;
+    border-bottom: 1px solid var(--garis);
+}
+
+.gallery figcaption {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 1.25rem;
+}
+
+.gallery h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 0.35rem;
+}
+
+.gallery figcaption p {
+    color: var(--tinta-lembut);
+}
+
+.gallery .tag {
+    margin-top: auto;
+    padding-top: 0.9rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--aksen);
+}
+
+
+/* --- Footer --- */
+
+.site-footer {
+    padding: 2rem 1.25rem;
+    text-align: center;
+    background: var(--dongker);
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+}
+
+
+/* --- Hormati pengaturan "kurangi gerakan" --- */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    * {
+        transition: none !important;
+    }
+
+    .card:hover,
+    .gallery figure:hover {
+        transform: none;
+    }
+}
+
+
+/* =========================================
+   4. TABLET: @media (min-width: 768px)
+   ========================================= */
+
+@media (min-width: 768px) {
+
+    .header-inner,
+    .hero,
+    .bagian {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    .header-inner {
+        flex-direction: row;
+    }
+
+    .bagian {
+        padding-top: 4.5rem;
+        padding-bottom: 4.5rem;
+    }
+
+    .judul-bagian {
+        font-size: 2rem;
+    }
+
+    /* Hero: teks di kiri, foto di kanan (row-reverse membalik urutan
+       tanpa mengubah HTML, jadi di ponsel foto tetap di atas) */
+    .hero {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        gap: 3rem;
+        padding-top: 4rem;
+        padding-bottom: 4.5rem;
+        text-align: left;
+    }
+
+    .hero img {
+        width: 240px;
+        height: 240px;
+    }
+
+    .hero-deskripsi {
+        margin: 0;
+    }
+
+    .hero-aksi {
+        justify-content: flex-start;
+    }
+
+    .tentang-isi {
+        grid-template-columns: 1.6fr 1fr;
+        gap: 3rem;
+    }
+}
+
+
+/* =========================================
+   5. DESKTOP: @media (min-width: 1024px)
+   ========================================= */
+
+@media (min-width: 1024px) {
+
+    /* Foto lebih besar. Lebar wadah dibatasi --lebar-maks
+       dan di-tengah-kan lewat margin: 0 auto (lihat bagian 3). */
+    .hero img {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+.portfolio-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
